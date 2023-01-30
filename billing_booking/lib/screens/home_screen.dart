@@ -1,6 +1,7 @@
 import 'package:billing_booking/constants/constants.dart';
 import 'package:billing_booking/widgets/my_horizontal_listitem.dart';
 import 'package:billing_booking/widgets/test.dart';
+import 'package:billing_booking/widgets/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -42,7 +43,8 @@ class HomeScreen extends StatelessWidget {
               height: 349,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  physics: const BouncingScrollPhysics(),
+                  
+                  physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
                     return const MyHorizontalListitem(
                         endColor: 0xAFA8EE,
@@ -64,14 +66,17 @@ class HomeScreen extends StatelessWidget {
                     fontWeight: FontWeight.w600),
               ),
               Text(
-                "Master Class",
+                "From over 80 Lectures",
                 style: GoogleFonts.roboto(
-                    fontSize: 36,
+                    fontSize: 14,
                     color: primaryTextColor,
-                    fontWeight: FontWeight.w500),
+                    fontWeight: FontWeight.w400),
               )
             ],
           ),
+          ListView.builder(itemCount: 5,shrinkWrap: true, itemBuilder: ((context, index) {
+            return const MyVirticalListitems(courcerating: 5.0,hDuration: "8 Hours",hImage: "assets/images/Saly24.png",hText: "Flutter Developer",);
+          }))
         ],
       )),
     );
